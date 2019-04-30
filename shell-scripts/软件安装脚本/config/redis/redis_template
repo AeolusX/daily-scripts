@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# chkconfig: 2345 90 10
+# description: service of redis for start and stop add by tomener
+base_dir=/app/local/redis{Port}
+redis_port={Port}
+pid_file=${base_dir}/redis.pid
+
+case "$1" in   
+        start)   
+                if [ -f ${pid_file} ]   
+                then   
+                        echo "${pid_file} exists, process is already running or crashed."  
+                else  
+                        echo "Starting Redis server..."  
+                        ${base_dir}/bin/redis-server ${base_dir}/redis.conf
+                fi   
+                if [ "$?"="0" ]   
+                then   
+                        echo "Redis is running..."  
+                fi   
+                ;;   
+        stop)   
+                if [ ! -f ${pid_file} ]   
+                then   
+                        echo "${pid_file} exists, process is not running."  
+                else  
+                        PID=$(cat ${pid_file})   
+                        echo "Stopping..."  
+                       ${base_dir}/bin/redis-cli -p $redis_port  shutdown
+                        sleep 2  
+                       while [ -x ${pid_file} ]   
+                       do  
+                                echo "Waiting for Redis to shutdown..."  
+                               sleep 1  
+                        done   
+                        echo "Redis stopped"  
+                fi   
+                ;;   
+        restart)
+                ${0} stop   
+                ${0} start   
+                ;;   
+        *)   
+               echo "Usage: /etc/init.d/redis {start|stop|restart}" >&2
+                exit 1  
+esac

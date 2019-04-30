@@ -1,0 +1,100 @@
+assets
+
+mkdir /tmp/sj_2144_cn/protected -p
+cp -a /data/site/walle_sj_2144_cn/assets /tmp/sj_2144_cn/
+cp -a /data/site/walle_sj_2144_cn/protected/config /tmp/sj_2144_cn/protected/
+cp -a /data/site/walle_sj_2144_cn/protected/runtime /tmp/sj_2144_cn/protected/
+
+
+cp -a /tmp/sj_2144_cn/assets /data/site/walle_sj_2144_cn/
+cp -a /tmp/sj_2144_cn/protected/config  /data/site/walle_sj_2144_cn/protected/
+cp -a /tmp/sj_2144_cn/protected/runtime  /data/site/walle_sj_2144_cn/protected/
+ln -s /data/sj_2144_cn/uploads /data/site/walle_sj_2144_cn/crop
+ln -s /data/sj_2144_cn/uploads /data/site/walle_sj_2144_cn/uploads
+ln -s /data/sj_2144_cn/d /data/site/walle_sj_2144_cn/d
+ln -s /data/sj_2144_cn/uploads /data/site/walle_sj_2144_cn/resize
+ln -s /data/sj_2144_cn/act	/data/site/walle_sj_2144_cn/act
+rm -rf /tmp/sj_2144_cn/
+
+
+mkdir /tmp/sj_2144_cn/protected -p
+cp -a /data/site/walle_sj_2144_cn/assets /tmp/sj_2144_cn/
+cp -a /data/site/walle_sj_2144_cn/protected/config /tmp/sj_2144_cn/protected/
+cp -a /data/site/walle_sj_2144_cn/protected/runtime /tmp/sj_2144_cn/protected/
+
+
+cp -a /tmp/sj_2144_cn/assets /data/site/walle_sj_2144_cn/
+cp -a /tmp/sj_2144_cn/protected/config  /data/site/walle_sj_2144_cn/protected/
+cp -a /tmp/sj_2144_cn/protected/runtime  /data/site/walle_sj_2144_cn/protected/
+ln -s /data/sj_2144_cn/uploads /data/site/walle_sj_2144_cn/crop
+ln -s /data/sj_2144_cn/d /data/site/walle_sj_2144_cn/d
+ln -s /data/sj_2144_cn/uploads /data/site/walle_sj_2144_cn/resize
+rm -rf /tmp/sj_2144_cn/
+
+
+mkdir /tmp/backsj_2144_cn/protected -p
+cp -a /data/site/walle_backsj_2144_cn/protected/config /tmp/backsj_2144_cn/protected/
+cp -a /data/site/walle_backsj_2144_cn/protected/runtime /tmp/backsj_2144_cn/protected/
+
+
+cp -a /tmp/backsj_2144_cn/protected/config  /data/site/walle_backsj_2144_cn/protected/
+cp -a /tmp/backsj_2144_cn/protected/runtime  /data/site/walle_backsj_2144_cn/protected/
+ln -s /data/sj_2144_cn/uploads /data/site/walle_backsj_2144_cn/uploads
+ln -s /data/sj_2144_cn/d /data/site/walle_backsj_2144_cn/d
+ln -s /data/backsj_2144_cn/assets /data/site/walle_backsj_2144_cn/assets
+ln -s /data/backsj_2144_cn/caiji /data/site/walle_backsj_2144_cn/caiji
+rm -rf /tmp/backsj_2144_cn/
+
+
+
+
+
+mkdir /tmp/backsj_2144_cn/protected -p
+cp -a /data/site/walle_backsj_2144_cn/assets /tmp/backsj_2144_cn/
+cp -a /data/site/walle_backsj_2144_cn/protected/config /tmp/backsj_2144_cn/protected/
+cp -a /data/site/walle_backsj_2144_cn/protected/runtime /tmp/backsj_2144_cn/protected/
+
+
+cp -a /tmp/backsj_2144_cn/assets /data/site/walle_backsj_2144_cn/
+cp -a /tmp/backsj_2144_cn/protected/config  /data/site/walle_backsj_2144_cn/protected/
+cp -a /tmp/backsj_2144_cn/protected/runtime  /data/site/walle_backsj_2144_cn/protected/
+ln -s /data/sj_2144_cn/uploads /data/site/walle_backsj_2144_cn/uploads
+ln -s /data/sj_2144_cn/d /data/site/walle_backsj_2144_cn/d
+rm -rf /tmp/backsj_2144_cn/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+src/index.php
+src/assets
+
+src/protected/runtime
+src/protected/config
+
+mkdir /tmp/collect_browser_2144_com/protected -p
+cp -a /app/data/site/collect_browser_2144_com/src/index.php /tmp/collect_browser_2144_com/
+cp -a /app/data/site/collect_browser_2144_com/src/assets /tmp/collect_browser_2144_com/
+cp -a /app/data/site/collect_browser_2144_com/src/protected/config /tmp/collect_browser_2144_com/protected/
+cp -a /app/data/site/collect_browser_2144_com/src/protected/runtime /tmp/collect_browser_2144_com/protected/
+
+
+cp -a /tmp/collect_browser_2144_com/index.php /app/data/site/collect_browser_2144_com/src/
+cp -a /tmp/collect_browser_2144_com/assets /app/data/site/collect_browser_2144_com/src/
+cp -a /tmp/collect_browser_2144_com/protected/config  /app/data/site/collect_browser_2144_com/src/protected/
+cp -a /tmp/collect_browser_2144_com/protected/runtime /app/data/site/collect_browser_2144_com/src/protected/
+rm -rf /tmp/collect_browser_2144_com/

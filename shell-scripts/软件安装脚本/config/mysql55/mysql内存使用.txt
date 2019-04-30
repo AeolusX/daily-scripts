@@ -1,0 +1,68 @@
+mysql 内存使用 
+
+read_buffer_size 只会在有查询的时候为该缓存分配内存，并且一次性分配指定大小
+read_rnd_buffer_size mysql会在有查询需要使用时才会给该缓存分配内存，并且只会分配需要的内存大小，而不是全部指定大小
+sort_buffer_size 只会在有数据需要排序才分配该内存大小，并且会分配指定大小的全部内存
+
+innodb_buffer_pool+ myISAM key cache + 每个连接使用的（sort_buffer_size join_buffer_size read_buffer_size read_rnd_buffer_size thread_stack）
+
+innodb_buffer_pool+ myISAM key cache + 每个连接使用的（sort_buffer_size join_buffer_size read_buffer_size read_rnd_buffer_size thread_stack）+ other （query_cache+innodb_log_buffer_size+innodb_additional_mem_pool）
+
+1GB + 128MB + 连接数*（4MB+2M+1MB+16MB+192k）+128M+80M
+
+内存调优 主要影响参数innodb_buffer_pool，innodb_log_file_size
+
+
+主要调优
+CPU
+#旧版本 5.5 推荐设置为服务器 CPU核数的2倍
+thread_concurrency = 8 
+
+内存
+innodb_buffer_pool
+#
+key_buffer 
+每个连接的线程
+
+IO
+innodb_flush_method=O_DIRECT 物理硬盘打开，会对顺序读写有影响
+innodb_io_capacity 根据IO能力设置，默认100， 建议SAS200 SSD 5000 PCI-E 10000-50000
+#
+影响日志写入性能
+innodb_flush_log_at_trx_commit
+sync_binlog
+innodb_log_file_size
+
+影响binlog 性能参数
+max_binlog_size
+binlog_cache_size
+sync_binlog
+binlog-do-db
+binlog-ignore-db
+log-slave-update
+binlog_format
+
+##
+#新版本
+innodb_read_io_threads = 4  默认为4，设置为提供IO磁盘的数量 
+innodb_write_io_threads = 4
+
+#
+innodb_adaptive_flushing 使脏页刷新更加智能
+
+
+
+
+OTHER
+tmp_table_size
+max_heap_table_size
+query_cache_size 
+query_cache_type
+max_connections 
+skip-name-resolve 
+
+
+
+
+
+

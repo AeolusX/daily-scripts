@@ -1,0 +1,50 @@
+
+
+./configure --prefix=/app/local/php7 \
+--with-config-file-path=/app/local/php7/etc \
+--enable-fpm \
+--enable-mbstring \
+--with-mhash \
+--with-mcrypt \
+--with-curl \
+--with-openssl \
+--with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd
+
+
+make && make install
+
+/etc/init.d/php7-fpm stop
+rm -rf /etc/init.d/php7-fpm
+
+cp php.ini-production /app/local/php7/etc/php.ini
+cp sapi/fpm/init.d.php-fpm /etc/init.d/php7-fpm
+chmod +x /etc/init.d/php7-fpm
+cd /app/local/php7/etc/
+cp php-fpm.conf.default php-fpm.conf
+cd php-fpm.d/
+cp www.conf.default www.conf
+/etc/init.d/php7-fpm start
+
+
+
+chkconfig --del php-fpm
+chkconfig --add php7-fpm
+
+
+
+cd /app/tools/php7
+rm -rf phpredis-php7
+unzip phpredis-php7.zip
+cd phpredis-php7
+/app/local/php7/bin/phpize
+./configure --with-php-config=/app/local/php7/bin/php-config
+make && make install
+
+vim /app/local/php7/etc/php.ini
+添加如下信息
+[redis]
+extension=redis.so
+
+
