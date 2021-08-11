@@ -70,7 +70,7 @@ set_default_work_env() {
   
   ###########################################
   # Mail report
-  MAIL_REPORT_ADDRESS=zhangmengmeng@2144.cn
+  MAIL_REPORT_ADDRESS=163g@163.cn
   
   ###########################################
   # Remote storage (SSH - S3)
